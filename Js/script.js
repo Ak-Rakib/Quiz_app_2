@@ -78,16 +78,8 @@ function showQuestion() {
     });
 }
 
+
 // step 4
-function resetState() {
-    nextButton.style.display = "none";
-    while (answerButton.firstChild) {
-        answerButton.removeChild(answerButton.firstChild);
-    }
-}
-
-
-// step 5
 function selectAnswer(e) {
     const selectBtn = e.target;
     const isCorrect = selectBtn.dataset.correct === "true";
@@ -106,6 +98,17 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
+
+// step 5
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButton.firstChild) {
+        answerButton.removeChild(answerButton.firstChild);
+    }
+}
+
+
+// step 6
 function showScore() {
     resetState();
     questionElement.innerHTML = `Your scored ${score} out of ${questions.length}!`;
@@ -113,6 +116,8 @@ function showScore() {
     nextButton.style.display = "block";
 }
 
+
+// step 7
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
